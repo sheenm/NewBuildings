@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientApps", "ClientApps", 
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "NewBuildings.Database", "src\NewBuildings.Database\NewBuildings.Database.sqlproj", "{956EE41F-9B11-4DBC-84DB-F1CB1D37498E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBuildings.BusinessLogic", "src\NewBuildings.BusinessLogic\NewBuildings.BusinessLogic.csproj", "{65625612-81E5-4479-BA98-0EB5F3551626}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{956EE41F-9B11-4DBC-84DB-F1CB1D37498E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{956EE41F-9B11-4DBC-84DB-F1CB1D37498E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{956EE41F-9B11-4DBC-84DB-F1CB1D37498E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{65625612-81E5-4479-BA98-0EB5F3551626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65625612-81E5-4479-BA98-0EB5F3551626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65625612-81E5-4479-BA98-0EB5F3551626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65625612-81E5-4479-BA98-0EB5F3551626}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,6 +52,7 @@ Global
 		{DB6C5D15-87C3-4BEA-853F-358F7E45E244} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
 		{DD8CC81C-C957-47DE-9D47-E6ACFE19C732} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
 		{956EE41F-9B11-4DBC-84DB-F1CB1D37498E} = {BC2AC45D-8A1C-4700-8619-013654F3E57B}
+		{65625612-81E5-4479-BA98-0EB5F3551626} = {CF7CC514-5EAA-4C53-9782-541CB9058C57}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28869554-7FA4-4388-A640-170A438C06EE}
