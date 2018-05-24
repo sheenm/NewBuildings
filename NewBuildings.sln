@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.Web", "src\NewBuildings\NewBuildings.Web.csproj", "{F5BDBB9C-34F1-4D73-8F39-22D82B793098}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6FEEAABA-825B-410C-A462-2323F4734CBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D0FE8E70-D9A4-4289-81F0-6316FD644F72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{CF7CC514-5EAA-4C53-9782-541CB9058C57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{BC2AC45D-8A1C-4700-8619-013654F3E57B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platform", "Platform", "{DB6C5D15-87C3-4BEA-853F-358F7E45E244}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClientApps", "ClientApps", "{DD8CC81C-C957-47DE-9D47-E6ACFE19C732}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5BDBB9C-34F1-4D73-8F39-22D82B793098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5BDBB9C-34F1-4D73-8F39-22D82B793098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5BDBB9C-34F1-4D73-8F39-22D82B793098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5BDBB9C-34F1-4D73-8F39-22D82B793098}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F5BDBB9C-34F1-4D73-8F39-22D82B793098} = {DD8CC81C-C957-47DE-9D47-E6ACFE19C732}
+		{CF7CC514-5EAA-4C53-9782-541CB9058C57} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
+		{BC2AC45D-8A1C-4700-8619-013654F3E57B} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
+		{DB6C5D15-87C3-4BEA-853F-358F7E45E244} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
+		{DD8CC81C-C957-47DE-9D47-E6ACFE19C732} = {6FEEAABA-825B-410C-A462-2323F4734CBE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {28869554-7FA4-4388-A640-170A438C06EE}
+	EndGlobalSection
+EndGlobal
