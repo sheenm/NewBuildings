@@ -12,8 +12,4 @@
     <ProjectReference Include="..\NewBuildings.BusinessLogic\NewBuildings.BusinessLogic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>

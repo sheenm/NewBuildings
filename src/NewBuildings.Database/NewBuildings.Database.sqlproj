@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{956ee41f-9b11-4dbc-84db-f1cb1d37498e}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -61,11 +61,19 @@
     <Folder Include="Properties" />
     <Folder Include="dbo\" />
     <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Flats.sql" />
     <Build Include="dbo\Tables\Houses.sql" />
     <Build Include="dbo\Tables\Districts.sql" />
     <Build Include="dbo\Tables\Regions.sql" />
+    <Build Include="dbo\Stored Procedures\SITE_DEL_Flat.sql" />
+    <Build Include="dbo\Stored Procedures\SITE_GET_Flats.sql" />
+    <Build Include="dbo\Stored Procedures\SITE_GET_FlatById.sql" />
+    <Build Include="dbo\Stored Procedures\SITE_INUPD_Flat.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="NewBuildings.Database.Dev.publish.xml" />
   </ItemGroup>
 </Project>

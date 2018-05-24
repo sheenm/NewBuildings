@@ -1,0 +1,9 @@
+﻿CREATE PROCEDURE [dbo].[SITE_GET_FlatById]
+	@Id uniqueidentifier
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+	SELECT * FROM Flats
+	WHERE Id=@Id
+END
