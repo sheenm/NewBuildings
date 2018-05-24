@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Regions] (
+    [Id]   UNIQUEIDENTIFIER NOT NULL,
+    [Name] NVARCHAR (250)   NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
