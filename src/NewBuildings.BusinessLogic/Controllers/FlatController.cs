@@ -22,7 +22,7 @@ namespace NewBuildings.BusinessLogic
             try
             {
                 var flats = (await _flatRepository.GetAllFlatsWithHouseInfo())
-                    .Select(flat => new FlatSummaryViewModel(flat, flat.House));
+                    .Select(flat => new FlatSummaryViewModel(flat, flat.House)).ToList();
 
                 return ServiceResponse<IEnumerable<FlatSummaryViewModel>>.Ok(flats);
             }
