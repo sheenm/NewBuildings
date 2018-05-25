@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Dapper;
+using System;
 
-namespace NewBuildings.BusinessLogic.Objects
+namespace NewBuildings.Data.Objects
 {
+    [Table("Regions")]
     public class Region : IBusinessObject
     {
         public Guid Id { get; set; }

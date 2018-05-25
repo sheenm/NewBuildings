@@ -1,9 +1,0 @@
-﻿CREATE PROCEDURE [dbo].[SITE_DEL_Flat]
-	@Id uniqueidentifier
-AS
-BEGIN
-	SET NOCOUNT ON;
-
-	DELETE FROM Flats
-	WHERE Id = @ID
-END

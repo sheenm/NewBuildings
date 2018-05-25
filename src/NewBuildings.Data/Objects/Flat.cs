@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Dapper;
+using System;
 
-namespace NewBuildings.BusinessLogic.Objects
+namespace NewBuildings.Data.Objects
 {
+    [Table("Flats")]
     public class Flat : IBusinessObject
     {
         public Guid Id { get; set; }
+        [Column("IdHouse")]
         public Guid HouseId { get; set; }
         public int RoomsCount { get; set; }
         public int FullArea { get; set; }

@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace NewBuildings.BusinessLogic.Objects
+namespace NewBuildings.Data.Objects
 {
     public interface IBusinessObject
     {
-        Guid Id { get; }
+        Guid Id { get; set; }
     }
 }
