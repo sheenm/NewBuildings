@@ -14,5 +14,7 @@ namespace NewBuildings.Data.Objects
         public int KitchenArea { get; set; }
         public int Floor { get; set; }
         public decimal Cost { get; set; }
+
+        public House House { get; set; }
     }
 }

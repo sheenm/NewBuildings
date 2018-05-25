@@ -5,7 +5,7 @@ namespace NewBuildings.Data.Repositories
 {
     public class RegionRepository : DapperCrudRepository<Region>, IRegionRepository
     {
-        protected RegionRepository(IDbConnectionFactory connectionFactory) : base(connectionFactory)
+        public RegionRepository(IDbConnectionFactory connectionFactory) : base(connectionFactory)
         {
         }
     }

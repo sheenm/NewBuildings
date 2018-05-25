@@ -9,7 +9,7 @@ namespace NewBuildings.Data.Repositories
 {
     public class DapperCrudRepository<T> : IRepository<T> where T : class, IBusinessObject, new()
     {
-        private IDbConnectionFactory _connectionFactory;
+        protected IDbConnectionFactory _connectionFactory;
 
         protected DapperCrudRepository(IDbConnectionFactory connectionFactory)
         {
