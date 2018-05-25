@@ -9,8 +9,4 @@
     <PackageReference Include="Dapper.SimpleCRUD" Version="1.13.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NewBuildings.BusinessLogic\NewBuildings.BusinessLogic.csproj" />
-  </ItemGroup>
-
 </Project>

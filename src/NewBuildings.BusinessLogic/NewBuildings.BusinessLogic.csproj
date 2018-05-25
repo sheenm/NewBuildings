@@ -4,4 +4,9 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\NewBuildings.Core\NewBuildings.Core.csproj" />
+    <ProjectReference Include="..\NewBuildings.Data\NewBuildings.Data.csproj" />
+  </ItemGroup>
+
 </Project>
