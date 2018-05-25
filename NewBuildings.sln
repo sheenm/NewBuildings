@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.BusinessLogic"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.Data", "src\NewBuildings.Data\NewBuildings.Data.csproj", "{7FB5987D-E619-45E0-AE2C-BA9DAF63C322}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBuildings.Core", "NewBuildings.Core\NewBuildings.Core.csproj", "{C850F4AE-9E1A-4DB4-B708-EE9B9D8421DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBuildings.Core", "src\NewBuildings.Core\NewBuildings.Core.csproj", "{C850F4AE-9E1A-4DB4-B708-EE9B9D8421DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBuildings.BusinessLogic.Tests", "tests\NewBuildings.BusinessLogic.Tests\NewBuildings.BusinessLogic.Tests.csproj", "{43460C87-E846-43EB-97CB-F5BF69967DED}"
 EndProject
