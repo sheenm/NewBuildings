@@ -53,7 +53,8 @@ namespace NewBuildings.Data.Repositories
 
         protected override bool Validate(Flat item)
         {
-            if (   item.RoomsCount < 1
+            if (   item == null
+                || item.RoomsCount < 1
                 || item.FullArea <= 0
                 || item.KitchenArea <= 0
                 || item.FullArea < item.KitchenArea

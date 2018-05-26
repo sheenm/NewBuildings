@@ -60,7 +60,7 @@ namespace NewBuildings.Data.Repositories
             {
                 await connection.OpenAsync();
 
-                if (GetById(item.Id) == null)
+                if (item.Id == default(int) || GetById(item.Id) == null)
                 {
                     return await connection.InsertAsync<int>(item) == item.Id;
                 }
