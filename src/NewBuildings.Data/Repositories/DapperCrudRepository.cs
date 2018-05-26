@@ -53,6 +53,9 @@ namespace NewBuildings.Data.Repositories
 
         public async Task<bool> Save(T item)
         {
+            if (Validate(item) == false)
+                return false;
+
             using (var connection = _connectionFactory.CreateConnection())
             {
                 await connection.OpenAsync();
@@ -69,6 +72,11 @@ namespace NewBuildings.Data.Repositories
         private bool IsSingleQuerySuccessful(int rowsAffected)
         {
             return rowsAffected == 1;
+        }
+
+        protected virtual bool Validate(T item)
+        {
+            return true;
         }
     }
 }

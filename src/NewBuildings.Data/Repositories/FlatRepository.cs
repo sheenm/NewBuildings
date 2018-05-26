@@ -27,8 +27,6 @@ namespace NewBuildings.Data.Repositories
                         flat.House = house;
                         return flat;
                     });
-
-                //todo: возможно здесь надо добавить splitOn: HouseID
             }
         }
 
@@ -37,9 +35,9 @@ namespace NewBuildings.Data.Repositories
             using (var connection = _connectionFactory.CreateConnection())
             {
                 await connection.OpenAsync();
-                var results =  await connection.QueryAsync<Flat, House, District, Region, Flat>(
+                var results = await connection.QueryAsync<Flat, House, District, Region, Flat>(
                     sql: "SITE_GET_FullFlatInfoById",
-                    param: new { Id = id},
+                    param: new { Id = id },
                     commandType: CommandType.StoredProcedure,
                     map: (flat, house, district, region) =>
                     {
@@ -50,6 +48,23 @@ namespace NewBuildings.Data.Repositories
                     });
 
                 return results.FirstOrDefault();
+            }
+        }
+
+        protected override bool Validate(Flat item)
+        {
+            if (   item.RoomsCount < 1
+                || item.FullArea <= 0
+                || item.KitchenArea <= 0
+                || item.FullArea < item.KitchenArea
+                || item.Floor < 0
+                || item.Cost <= 0)
+            {
+
+                return false;
+            }
+            {
+                return true;
             }
         }
     }

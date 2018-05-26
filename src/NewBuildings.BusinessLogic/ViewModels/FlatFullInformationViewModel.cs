@@ -2,12 +2,12 @@
 
 namespace NewBuildings.BusinessLogic.ViewModels
 {
-    public class FlatFullInformation
+    public class FlatFullInformationViewModel
     {
         public int Id { get; set; }
         public int RoomsCount {get;set;}
-        public int FullArea { get; set; }
-        public int KitchenArea { get; set; }
+        public double FullArea { get; set; }
+        public double KitchenArea { get; set; }
         public int Floor { get; set; }
         public decimal Cost { get; set; }
 
@@ -19,11 +19,11 @@ namespace NewBuildings.BusinessLogic.ViewModels
 
         public string RegionName { get; set; }
 
-        public FlatFullInformation()
+        public FlatFullInformationViewModel()
         {
         }
 
-        public FlatFullInformation(Flat flat)
+        public FlatFullInformationViewModel(Flat flat)
         {
             Id = flat.Id;
             RoomsCount = flat.RoomsCount;

@@ -7,8 +7,8 @@ namespace NewBuildings.BusinessLogic.ViewModels
         public int Id { get; set; }
         public string ResidentialComplexName { get; set; }
         public int RoomCount { get; set; }
-        public int FullArea { get; set; }
-        public int KitchenArea { get; set; }
+        public double FullArea { get; set; }
+        public double KitchenArea { get; set; }
         public decimal Cost { get; set; }
 
         public FlatSummaryViewModel()

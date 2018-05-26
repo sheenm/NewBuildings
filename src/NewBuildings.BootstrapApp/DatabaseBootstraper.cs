@@ -151,8 +151,8 @@ namespace NewBuildings.BootstrapApp
                 var id = worksheet.Cells[row, 1].GetValue<int>();
                 var houseId = worksheet.Cells[row, 2].GetValue<int>();
                 var roomsCount = worksheet.Cells[row, 10].GetValue<int>();
-                var fullArea = worksheet.Cells[row, 11].GetValue<int>();
-                var kitchenArea = worksheet.Cells[row, 12].GetValue<int>();
+                var fullArea = worksheet.Cells[row, 11].GetValue<double>();
+                var kitchenArea = worksheet.Cells[row, 12].GetValue<double>();
                 var floor = worksheet.Cells[row, 13].GetValue<int>();
                 var cost = worksheet.Cells[row, 14].GetValue<decimal>();
 

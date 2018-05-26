@@ -9,8 +9,8 @@ namespace NewBuildings.Data.Objects
         [Column("IdHouse")]
         public int HouseId { get; set; }
         public int RoomsCount { get; set; }
-        public int FullArea { get; set; }
-        public int KitchenArea { get; set; }
+        public double FullArea { get; set; }
+        public double KitchenArea { get; set; }
         public int Floor { get; set; }
         public decimal Cost { get; set; }
 

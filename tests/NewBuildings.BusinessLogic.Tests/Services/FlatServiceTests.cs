@@ -134,5 +134,80 @@ namespace NewBuildings.BusinessLogic.Tests.Services
             var controller = new FlatService(flatRepoMoq.Object);
             await Assert.ThrowsAnyAsync<Exception>(async () => await controller.GetFlatFullInformation(12345));
         }
+
+        [Fact]
+        public async Task EditFlat_NullViewModel_Warning()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            var controller = new FlatService(flatRepoMoq.Object);
+            var response = await controller.EditFlat(null);
+            Assert.Equal(ResponseStatuses.Warning, response.Status);
+        }
+
+        [Fact]
+        public async Task EditFlat_EmptyIdentifier_Warning()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            var controller = new FlatService(flatRepoMoq.Object);
+            var response = await controller.EditFlat(new ViewModels.FlatFullInformationViewModel
+            {
+                Id = 0
+            });
+            Assert.Equal(ResponseStatuses.Warning, response.Status);
+        }
+
+        [Fact]
+        public async Task EditFlat_NoFlatInRepository_Warning()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            flatRepoMoq
+                .Setup(m => m.GetById(1))
+                .Returns(Task.FromResult<Flat>(null));
+
+            var controller = new FlatService(flatRepoMoq.Object);
+            var response = await controller.EditFlat(new ViewModels.FlatFullInformationViewModel
+            {
+                Id = 1
+            });
+            Assert.Equal(ResponseStatuses.Warning, response.Status);
+        }
+
+        [Fact]
+        public async Task EditFlat_ShouldReturnOkResult()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            flatRepoMoq
+                .Setup(m => m.GetById(1))
+                .Returns(Task.FromResult(new Flat
+                {
+                }));
+
+            var controller = new FlatService(flatRepoMoq.Object);
+            var response = await controller.EditFlat(new ViewModels.FlatFullInformationViewModel
+            {
+                Id = 1,
+                FullArea = 3,
+                KitchenArea = 3,
+                Floor = 2,
+                Cost = 232424
+            });
+            Assert.Equal(ResponseStatuses.Ok, response.Status);
+        }
+
+        [Theory]
+        [InlineData(3, 3)]
+        [InlineData(3, 4)]
+        public async Task EditFlat_KitchenAreaMoreThanFull_Warning(int full, int kitchen)
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            var controller = new FlatService(flatRepoMoq.Object);
+            var response = await controller.EditFlat(new ViewModels.FlatFullInformationViewModel
+            {
+                Id = 0,
+                FullArea = full,
+                KitchenArea = kitchen
+            });
+            Assert.Equal(ResponseStatuses.Warning, response.Status);
+        }
     }
 }

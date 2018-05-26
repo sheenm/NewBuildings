@@ -36,7 +36,7 @@ namespace NewBuildings.Web.Controllers
         }
 
         [HttpGet("get-flat-details/{id:int}")]
-        public async Task<ServiceResponse<FlatFullInformation>> GetFlatDetails(int id)
+        public async Task<ServiceResponse<FlatFullInformationViewModel>> GetFlatDetails(int id)
         {
             try
             {
@@ -45,7 +45,7 @@ namespace NewBuildings.Web.Controllers
             catch (Exception e)
             {
                 _logger.LogError(e, $"exception in  GetFlatDetails, called with id = {id}");
-                return ServiceResponse<FlatFullInformation>.Exception("An error occured during get-flat-details request");
+                return ServiceResponse<FlatFullInformationViewModel>.Exception("An error occured during get-flat-details request");
             }
         }
 
