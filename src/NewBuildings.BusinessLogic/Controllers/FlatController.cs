@@ -19,18 +19,18 @@ namespace NewBuildings.BusinessLogic
 
         public async Task<ServiceResponse<IEnumerable<FlatSummaryViewModel>>> GetAllFlatsSummary()
         {
-            try
-            {
-                var flats = (await _flatRepository.GetAllFlatsWithHouseInfo())
-                    .Select(flat => new FlatSummaryViewModel(flat, flat.House)).ToList();
+            var flats = (await _flatRepository.GetAllFlatsWithHouseInfo())
+                .Select(flat => new FlatSummaryViewModel(flat, flat.House)).ToList();
 
-                return ServiceResponse<IEnumerable<FlatSummaryViewModel>>.Ok(flats);
-            }
-            catch (Exception ex)
-            {
-                //todo: добавить логирование ex
-                return ServiceResponse<IEnumerable<FlatSummaryViewModel>>.Exception("Произошла ошибка при получении данных о квартирах");
-            }
+            return ServiceResponse<IEnumerable<FlatSummaryViewModel>>.Ok(flats);
+        }
+
+        public async Task<ServiceResponse<bool>> DeleteFlat(int id)
+        {
+            if (id == default(int))
+                return ServiceResponse<bool>.Warning("Could not delete flat with empty identifier");
+
+            return ServiceResponse<bool>.Ok(await _flatRepository.Delete(id));
         }
 
     }

@@ -55,9 +55,35 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                     }
                 ));
             var controller = new FlatController(flatRepoMoq.Object);
+            await Assert.ThrowsAnyAsync<Exception>(controller.GetAllFlatsSummary);
+        }
 
-            var response = await controller.GetAllFlatsSummary();
-            Assert.Equal(ResponseStatuses.Exception, response.Status);
+        [Fact]
+        public async Task DeleteFlat_EmptyIdentifier_Warning()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+
+            var controller = new FlatController(flatRepoMoq.Object);
+            var actualResponse = await controller.DeleteFlat(0);
+
+            Assert.Equal(ResponseStatuses.Warning, actualResponse.Status);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(100)]
+        [InlineData(10000)]
+        public async Task DeleteFlat_NonEmptyIdentifier_OkResponse(int id)
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            flatRepoMoq
+                .Setup(m => m.Delete(id))
+                .Returns(Task.FromResult(true));
+
+            var controller = new FlatController(flatRepoMoq.Object);
+            var actualResponse = await controller.DeleteFlat(id);
+
+            Assert.Equal(ResponseStatuses.Ok, actualResponse.Status);
         }
     }
 }

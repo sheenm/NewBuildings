@@ -1,5 +1,4 @@
 ﻿using NewBuildings.Data.Abstract;
-using System.Threading.Tasks;
 using Dapper;
 using NewBuildings.Data.Objects;
 using System.Data.Common;
@@ -9,10 +8,17 @@ using System.IO;
 
 namespace NewBuildings.BootstrapApp
 {
+    /// <summary>
+    /// This class is used to seed database
+    /// </summary>
     public class DatabaseBootstraper
     {
         private readonly IDbConnectionFactory _connectionFactory;
 
+        /// <summary>
+        /// This class is used to seed database
+        /// </summary>
+        /// <param name="connectionFactory">we can't use repositories because we have to insert items with specified IDs</param>
         public DatabaseBootstraper(IDbConnectionFactory connectionFactory)
         {
             _connectionFactory = connectionFactory;
