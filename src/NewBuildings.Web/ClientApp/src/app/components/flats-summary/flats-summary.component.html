@@ -1,0 +1,26 @@
+<p *ngIf="!flats">
+    <em>Loading...</em>
+</p>
+
+<table class="flats-summary" *ngIf="flats">
+    <tr>
+        <th>Номер</th>
+        <th>Название ЖК</th>
+        <th>Количество комнат</th>
+        <th>Площадь общая</th>
+        <th>Площадь кухни</th>
+        <th>Этаж</th>
+        <th>Стоимость, тыс. руб</th>
+    </tr>
+
+    <tr *ngFor="let flat of flats">
+        <td>{{flat.id}}</td>
+        <td>{{flat.residentialComplexName}}</td>
+        <td>{{flat.roomCount}}</td>
+        <td>{{flat.fullArea}}</td>
+        <td>{{flat.kitchenArea}}</td>
+        <td>{{flat.floor}}</td>
+        <td>{{flat.cost}}</td>
+    </tr>
+
+</table>

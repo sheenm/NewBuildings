@@ -9,6 +9,7 @@ namespace NewBuildings.BusinessLogic.ViewModels
         public int RoomCount { get; set; }
         public double FullArea { get; set; }
         public double KitchenArea { get; set; }
+        public int Floor { get; set; }
         public decimal Cost { get; set; }
 
         public FlatSummaryViewModel()
@@ -22,6 +23,7 @@ namespace NewBuildings.BusinessLogic.ViewModels
             RoomCount = flat.RoomsCount;
             FullArea = flat.FullArea;
             KitchenArea = flat.KitchenArea;
+            Floor = flat.Floor;
             Cost = flat.Cost;
         }
     }
