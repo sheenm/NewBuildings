@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Flats] (
-    [Id]          INT NOT NULL,
+    [Id]          INT NOT NULL IDENTITY(1785354, 1),
     [IdHouse]     INT NOT NULL,
     [RoomsCount]  INT              NOT NULL,
     [FullArea]    INT              NOT NULL,

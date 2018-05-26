@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Regions] (
-    [Id]   INT NOT NULL,
+    [Id]   INT NOT NULL IDENTITY(5002, 1),
     [Name] NVARCHAR (250)   NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
