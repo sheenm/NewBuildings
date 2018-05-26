@@ -5,13 +5,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NewBuildings.BusinessLogic
+namespace NewBuildings.BusinessLogic.Services
 {
-    public class FlatController
+    public class FlatService
     {
         private readonly IFlatRepository _flatRepository;
 
-        public FlatController(IFlatRepository flatRepository)
+        public FlatService(IFlatRepository flatRepository)
         {
             _flatRepository = flatRepository;
         }

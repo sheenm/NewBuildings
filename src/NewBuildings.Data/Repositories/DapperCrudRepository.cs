@@ -15,12 +15,12 @@ namespace NewBuildings.Data.Repositories
             _connectionFactory = connectionFactory;
         }
 
-        public async Task<bool> Delete(int Id)
+        public async Task<bool> Delete(int id)
         {
             using (var connection = _connectionFactory.CreateConnection())
             {
                 await connection.OpenAsync();
-                return IsSingleQuerySuccessful(await connection.DeleteAsync(Id));
+                return IsSingleQuerySuccessful(await connection.DeleteAsync<T>(id));
             }
         }
 
@@ -42,12 +42,12 @@ namespace NewBuildings.Data.Repositories
             }
         }
 
-        public async Task<T> GetById(int Id)
+        public async Task<T> GetById(int id)
         {
             using (var connection = _connectionFactory.CreateConnection())
             {
                 await connection.OpenAsync();
-                return await connection.GetAsync<T>(Id);
+                return await connection.GetAsync<T>(id);
             }
         }
 

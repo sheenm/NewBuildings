@@ -6,12 +6,13 @@ using Xunit;
 using NewBuildings.Data.Abstract;
 using NewBuildings.Data.Objects;
 using NewBuildings.Core;
+using NewBuildings.BusinessLogic.Services;
 
-namespace NewBuildings.BusinessLogic.Tests.Controllers
+namespace NewBuildings.BusinessLogic.Tests.Services
 {
-    public class FlatControllerTests
+    public class FlatServiceTests
     {
-        public FlatControllerTests()
+        public FlatServiceTests()
         {
         }
 
@@ -31,7 +32,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                         }
                     }
                 ));
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
 
             var response = await controller.GetAllFlatsSummary();
             Assert.Equal(ResponseStatuses.Ok, response.Status);
@@ -54,7 +55,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                         }
                     }
                 ));
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             await Assert.ThrowsAnyAsync<Exception>(controller.GetAllFlatsSummary);
         }
 
@@ -63,7 +64,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
         {
             var flatRepoMoq = new Mock<IFlatRepository>();
 
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             var actualResponse = await controller.DeleteFlat(0);
 
             Assert.Equal(ResponseStatuses.Warning, actualResponse.Status);
@@ -80,7 +81,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                 .Setup(m => m.Delete(id))
                 .Returns(Task.FromResult(true));
 
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             var actualResponse = await controller.DeleteFlat(id);
 
             Assert.Equal(ResponseStatuses.Ok, actualResponse.Status);
@@ -91,7 +92,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
         {
             var flatRepoMoq = new Mock<IFlatRepository>();
 
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             var actualResponse = await controller.GetFlatFullInformation(0);
 
             Assert.Equal(ResponseStatuses.Warning, actualResponse.Status);
@@ -113,7 +114,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                     District = new District { },
                 }));
 
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             var actualResponse = await controller.GetFlatFullInformation(id);
 
             Assert.Equal(ResponseStatuses.Ok, actualResponse.Status);
@@ -130,7 +131,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                     House = null
                 }));
 
-            var controller = new FlatController(flatRepoMoq.Object);
+            var controller = new FlatService(flatRepoMoq.Object);
             await Assert.ThrowsAnyAsync<Exception>(async () => await controller.GetFlatFullInformation(12345));
         }
     }

@@ -39,6 +39,7 @@ namespace NewBuildings.Data.Repositories
                 await connection.OpenAsync();
                 var results =  await connection.QueryAsync<Flat, House, District, Region, Flat>(
                     sql: "SITE_GET_FullFlatInfoById",
+                    param: new { Id = id},
                     commandType: CommandType.StoredProcedure,
                     map: (flat, house, district, region) =>
                     {

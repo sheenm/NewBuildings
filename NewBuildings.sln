@@ -27,7 +27,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.Core", "src\Ne
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.BusinessLogic.Tests", "tests\NewBuildings.BusinessLogic.Tests\NewBuildings.BusinessLogic.Tests.csproj", "{43460C87-E846-43EB-97CB-F5BF69967DED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewBuildings.BootstrapApp", "src\NewBuildings.BootstrapApp\NewBuildings.BootstrapApp.csproj", "{C9E2DDBE-9A71-4356-A32E-5606FF8B02D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewBuildings.BootstrapApp", "src\NewBuildings.BootstrapApp\NewBuildings.BootstrapApp.csproj", "{C9E2DDBE-9A71-4356-A32E-5606FF8B02D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
