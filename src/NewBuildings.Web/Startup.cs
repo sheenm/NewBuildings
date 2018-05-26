@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NewBuildings.BootstrapApp;
+using NewBuildings.Data;
+using NewBuildings.Data.Abstract;
 
 namespace NewBuildings.Web
 {
@@ -19,6 +22,15 @@ namespace NewBuildings.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            var connectionString = Configuration.GetConnectionString("Default");
+            services.AddScoped<IDbConnectionFactory>((service) => new MsSqlConnectionFactory(connectionString));
+            BootstrapApp(connectionString);
+        }
+
+        private static void BootstrapApp(string connectionString)
+        {
+            var appBootstraper = new AppBootstraper(new MsSqlConnectionFactory(connectionString));
+            appBootstraper.Bootstrap();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

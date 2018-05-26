@@ -7,7 +7,7 @@ namespace NewBuildings.Data.Objects
     {
         public int Id { get; set; }
         public int ConstructionStage { get; set; }
-        public int HousingNumber { get; set; }
+        public string HousingNumber { get; set; }
         public string ResidentialComplexName { get; set; }
         [Column("IdDistrict")]
         public int DistrictId { get; set; }
