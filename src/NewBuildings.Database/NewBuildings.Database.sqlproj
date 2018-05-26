@@ -69,6 +69,7 @@
     <Build Include="dbo\Tables\Districts.sql" />
     <Build Include="dbo\Tables\Regions.sql" />
     <Build Include="dbo\Stored Procedures\SITE_GET_AllFlatsWithHouseInfo.sql" />
+    <Build Include="dbo\Stored Procedures\SITE_GET_FullFlatInfoById.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NewBuildings.Database.Dev.publish.xml" />

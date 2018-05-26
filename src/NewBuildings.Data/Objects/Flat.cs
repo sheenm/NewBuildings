@@ -15,5 +15,7 @@ namespace NewBuildings.Data.Objects
         public decimal Cost { get; set; }
 
         public House House { get; set; }
+        public District District { get; set; }
+        public Region Region { get; set; }
     }
 }

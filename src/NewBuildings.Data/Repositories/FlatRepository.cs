@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using NewBuildings.Data.Abstract;
 using NewBuildings.Data.Objects;
+using System.Linq;
 using Dapper;
 using System.Data;
 
@@ -28,6 +29,26 @@ namespace NewBuildings.Data.Repositories
                     });
 
                 //todo: возможно здесь надо добавить splitOn: HouseID
+            }
+        }
+
+        public async Task<Flat> GetFullFlatInformation(int id)
+        {
+            using (var connection = _connectionFactory.CreateConnection())
+            {
+                await connection.OpenAsync();
+                var results =  await connection.QueryAsync<Flat, House, District, Region, Flat>(
+                    sql: "SITE_GET_FullFlatInfoById",
+                    commandType: CommandType.StoredProcedure,
+                    map: (flat, house, district, region) =>
+                    {
+                        flat.House = house;
+                        flat.District = district;
+                        flat.Region = region;
+                        return flat;
+                    });
+
+                return results.FirstOrDefault();
             }
         }
     }

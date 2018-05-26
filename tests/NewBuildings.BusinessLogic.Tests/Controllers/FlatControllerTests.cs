@@ -85,5 +85,53 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
 
             Assert.Equal(ResponseStatuses.Ok, actualResponse.Status);
         }
+
+        [Fact]
+        public async Task GetFlatFullInformation_EmptyId_Warning()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+
+            var controller = new FlatController(flatRepoMoq.Object);
+            var actualResponse = await controller.GetFlatFullInformation(0);
+
+            Assert.Equal(ResponseStatuses.Warning, actualResponse.Status);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(100)]
+        [InlineData(10000)]
+        public async Task GetFlatFullInformation_NonEmptyIdentifier_OkResponse(int id)
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            flatRepoMoq
+                .Setup(m => m.GetFullFlatInformation(id))
+                .Returns(Task.FromResult(new Flat
+                {
+                    House = new House { },
+                    Region = new Region { },
+                    District = new District { },
+                }));
+
+            var controller = new FlatController(flatRepoMoq.Object);
+            var actualResponse = await controller.GetFlatFullInformation(id);
+
+            Assert.Equal(ResponseStatuses.Ok, actualResponse.Status);
+        }
+
+        [Fact]
+        public async Task GetFlatFullInformation_ShouldThrowException()
+        {
+            var flatRepoMoq = new Mock<IFlatRepository>();
+            flatRepoMoq
+                .Setup(m => m.GetFullFlatInformation(12345))
+                .Returns(Task.FromResult(new Flat
+                {
+                    House = null
+                }));
+
+            var controller = new FlatController(flatRepoMoq.Object);
+            await Assert.ThrowsAnyAsync<Exception>(async () => await controller.GetFlatFullInformation(12345));
+        }
     }
 }
