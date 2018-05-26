@@ -49,6 +49,20 @@ namespace NewBuildings.Web.Controllers
             }
         }
 
+        [HttpPost("edit-flat")]
+        public async Task<ServiceResponse<bool>> EditFlat(FlatFullInformationViewModel model)
+        {
+            try
+            {
+                return await _flatService.EditFlat(model);
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, $"exception in EditFlat, called with {model}");
+                return ServiceResponse<bool>.Exception("An error occured during edit-flat request");
+            }
+        }
+
         [HttpPost("delete-flat")]
         public async Task<ServiceResponse<bool>> DeleteFlat(int id)
         {
