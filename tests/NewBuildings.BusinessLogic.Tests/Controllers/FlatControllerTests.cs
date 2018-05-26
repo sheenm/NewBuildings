@@ -49,7 +49,7 @@ namespace NewBuildings.BusinessLogic.Tests.Controllers
                     {
                         new Flat
                         {
-                            Id = Guid.NewGuid(),
+                            Id = 23,
                             House = null,
                         }
                     }

@@ -1,11 +1,10 @@
 ﻿using NewBuildings.Data.Objects;
-using System;
 
 namespace NewBuildings.BusinessLogic.ViewModels
 {
     public class FlatSummaryViewModel
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string ResidentialComplexName { get; set; }
         public int RoomCount { get; set; }
         public int FullArea { get; set; }

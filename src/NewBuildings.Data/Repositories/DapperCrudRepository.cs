@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Dapper;
 using System.Threading.Tasks;
 using NewBuildings.Data.Abstract;
@@ -16,7 +15,7 @@ namespace NewBuildings.Data.Repositories
             _connectionFactory = connectionFactory;
         }
 
-        public async Task<bool> Delete(Guid Id)
+        public async Task<bool> Delete(int Id)
         {
             using (var connection = _connectionFactory.CreateConnection())
             {
@@ -43,7 +42,7 @@ namespace NewBuildings.Data.Repositories
             }
         }
 
-        public async Task<T> GetById(Guid Id)
+        public async Task<T> GetById(int Id)
         {
             using (var connection = _connectionFactory.CreateConnection())
             {
@@ -60,7 +59,7 @@ namespace NewBuildings.Data.Repositories
 
                 if (GetById(item.Id) == null)
                 {
-                    return await connection.InsertAsync<Guid>(item) == item.Id;
+                    return await connection.InsertAsync<int>(item) == item.Id;
                 }
 
                 return IsSingleQuerySuccessful(await connection.UpdateAsync(item));

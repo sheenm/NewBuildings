@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Flats] (
-    [Id]          UNIQUEIDENTIFIER NOT NULL,
-    [IdHouse]     UNIQUEIDENTIFIER NOT NULL,
+    [Id]          INT NOT NULL,
+    [IdHouse]     INT NOT NULL,
     [RoomsCount]  INT              NOT NULL,
     [FullArea]    INT              NOT NULL,
     [KitchenArea] INT              NOT NULL,

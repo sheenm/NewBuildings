@@ -1,14 +1,13 @@
 ﻿using Dapper;
-using System;
 
 namespace NewBuildings.Data.Objects
 {
     [Table("Flats")]
     public class Flat : IBusinessObject
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Column("IdHouse")]
-        public Guid HouseId { get; set; }
+        public int HouseId { get; set; }
         public int RoomsCount { get; set; }
         public int FullArea { get; set; }
         public int KitchenArea { get; set; }
