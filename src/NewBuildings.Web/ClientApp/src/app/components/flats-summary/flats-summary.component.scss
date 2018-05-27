@@ -1,9 +1,37 @@
-.flats-summary {
-  width: 100%;
-  border: 1px solid #ececec;
+@import '../../../variables';
 
-  td,
-  th {
-    border: 1px solid #ececec;
-  }
+.flats-summary {
+    width: 100%;
+    border: 1px solid $border-color;
+
+    td,
+    th {
+        border: 1px solid $border-color;
+    }
+}
+
+.flats-pagination {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    border-radius: 1px;
+    padding: 0;
+
+    &__link {
+        border: 1px solid $border-color;
+        color: #007bff;
+        font-size: 1rem;
+        padding: 0.6rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.count-per-page {
+    &__input {
+        width: 3rem;
+        border: 1px solid $border-color;
+    }
 }

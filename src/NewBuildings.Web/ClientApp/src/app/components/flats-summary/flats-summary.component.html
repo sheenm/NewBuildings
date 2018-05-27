@@ -2,6 +2,16 @@
     <em>Loading...</em>
 </p>
 
+<p>
+    Квартиры должны быть сгруппированы по районам Санкт-Петербурга и ЛО, а группы отсортированы по имени района. Формат вывода
+    название группы: [Название района] ([Название региона]) Должна быть возможность постраничного просмотра с выбором количества
+    отображаемых на странице объектов. Должна быть возможность сортировки по всем колонкам (см. п.2.1.1). Должна быть возможность
+    фильтрации квартир по следующим параметрам: Площадь общая (от - до) Площадь кухни (от - до) Стоимость (от - до) В каждой
+    строке присутствуют кнопки: Просмотр объекта. По клику во всплывающем окне отображаем карточку объекта со всеми его характеристиками.
+    Редактирование объекта на карточке недоступно. Просмотр так же доступен по двойному клику. Редактирование объекта. По
+    клику переходим на страницу объекта (см. 2.2). Удаление объекта. По клику удаляем объект из системы.
+</p>
+
 <table class="flats-summary" *ngIf="flats">
     <tr>
         <th>Номер</th>
@@ -13,7 +23,7 @@
         <th>Стоимость, тыс. руб</th>
     </tr>
 
-    <tr *ngFor="let flat of flats">
+    <tr *ngFor="let flat of pagedFlats">
         <td>{{flat.id}}</td>
         <td>{{flat.residentialComplexName}}</td>
         <td>{{flat.roomCount}}</td>
@@ -24,3 +34,28 @@
     </tr>
 
 </table>
+
+<ul *ngIf="pager && pager.pages && pager.pages.length" class="flats-pagination">
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a class="flats-pagination__link" (click)="setPage(1)">Первая</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a class="flats-pagination__link" (click)="setPage(pager.currentPage - 1)">Предыдущая</a>
+    </li>
+    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a class="flats-pagination__link" (click)="setPage(page)">{{page}}</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a class="flats-pagination__link" (click)="setPage(pager.currentPage + 1)">Следующая</a>
+    </li>
+    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a class="flats-pagination__link" (click)="setPage(pager.totalPages)">Последняя</a>
+    </li>
+</ul>
+
+<div class="count-per-page">
+    <label>Количество квартир на странице:
+        <input type="number" class="count-per-page__input" [(ngModel)]="flatsPerPage" (ngModelChange)="setPage(pager.currentPage)"
+        />
+    </label>
+</div>

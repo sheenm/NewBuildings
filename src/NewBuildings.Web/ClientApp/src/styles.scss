@@ -1,17 +1,19 @@
 @import 'variables';
 
 html {
-  font-size: $font-size;
-  font-size: 14px;
+    font-size: $font-size;
+}
+* {
+    box-sizing: border-box;
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  padding: 0 10px;
+    width: 100%;
+    display: flex;
+    padding: 0 10px;
 
-  @media screen and (min-width: $content-width) {
-    width: $content-width;
-    margin: 0 auto 0;
-  }
+    @media screen and (min-width: $content-width) {
+        width: $content-width;
+        margin: 0 auto 0;
+    }
 }
