@@ -21,6 +21,7 @@
         <th>Площадь кухни</th>
         <th>Этаж</th>
         <th>Стоимость, тыс. руб</th>
+        <th>Действия</th>
     </tr>
 
     <tr *ngFor="let flat of pagedFlats">
@@ -31,6 +32,14 @@
         <td>{{flat.kitchenArea}}</td>
         <td>{{flat.floor}}</td>
         <td>{{flat.cost}}</td>
+        <td>
+            <div class="flats-summary__actions">
+                <i class="far fa-eye" title="Посмотреть полную информацию"></i>
+                <i class="far fa-edit" title="Отредактировать"></i>
+                <i class="far fa-trash-alt" title="Удалить"></i>
+            </div>
+
+        </td>
     </tr>
 
 </table>

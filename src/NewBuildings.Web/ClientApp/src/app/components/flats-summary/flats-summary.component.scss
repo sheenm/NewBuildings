@@ -8,6 +8,12 @@
     th {
         border: 1px solid $border-color;
     }
+
+    &__actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 }
 
 .flats-pagination {
