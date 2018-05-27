@@ -1,0 +1,61 @@
+<div *ngIf="flat" class="flat-edit-form">
+    <label class="flat-edit-form__field">
+        Идентификатор:
+        <input type="text" [(ngModel)]="flat.id" disabled />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Количество комнат:
+        <input type="text" [(ngModel)]="flat.roomsCount" disabled/>
+    </label>
+
+    <label class="flat-edit-form__field">
+        Общая площадь:
+        <input type="number" step="0.01" [(ngModel)]="flat.fullArea" />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Площадь кухни:
+        <input type="number" step="0.01" [(ngModel)]="flat.kitchenArea" />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Этаж:
+        <input type="number" [(ngModel)]="flat.floor" />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Стоимость:
+        <input type="number" step="0.001" [(ngModel)]="flat.cost" />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Очередь постройки:
+        <input type="text" [(ngModel)]="flat.constructionStage" disabled/>
+    </label>
+
+    <label class="flat-edit-form__field">
+        Корпус:
+        <input type="text" [(ngModel)]="flat.housingNumber" disabled/>
+    </label>
+
+    <label class="flat-edit-form__field">
+        Название ЖК:
+        <input type="text" [(ngModel)]="flat.residentialComplexName" disabled />
+    </label>
+
+    <label class="flat-edit-form__field">
+        Район:
+        <input type="text" [(ngModel)]="flat.districtName" disabled/>
+    </label>
+
+    <label class="flat-edit-form__field">
+        Регион:
+        <input type="text" [(ngModel)]="flat.regionName" disabled/>
+    </label>
+
+    <div class="flat-edit-form__footer">
+        <button (click)="saveFlat()">Сохранить</button>
+        <button (click)="cancelSave()">Отмена</button>
+    </div>
+</div>

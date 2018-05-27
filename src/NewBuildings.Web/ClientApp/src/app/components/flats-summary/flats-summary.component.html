@@ -37,8 +37,10 @@
                 <a [routerLink]="[ {outlets: { modal: ['details', flat.id] } } ]" title="Посмотреть полную информацию">
                     <i class="far fa-eye"></i>
                 </a>
+                <a [routerLink]="['edit', flat.id]" title="Отредактировать">
+                    <i class="far fa-edit"></i>
+                </a>
 
-                <i class="far fa-edit" title="Отредактировать"></i>
                 <!-- [routerLink]="[ {outlets: { modal: ['delete', flat.id] } } ]" -->
                 <a (click)="deleteFlat(flat)" title="Удалить">
                     <i class="far fa-trash-alt"></i>

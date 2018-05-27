@@ -11,6 +11,7 @@ import { FlatDetailsComponent } from './components/flat-details/flat-details.com
 import { FlatEditPageComponent } from './pages/flat-edit/flat-edit-page.component'
 import { FlatsSummaryComponent } from './components/flats-summary/flats-summary.component'
 import { FlatDeleteComponent } from './components/flat-delete/flat-delete.component'
+import { FlatEditComponent } from './components/flat-edit/flat-edit.component'
 import { ModalComponent } from './components/modal/modal.component'
 
 @NgModule({
@@ -23,14 +24,15 @@ import { ModalComponent } from './components/modal/modal.component'
         FlatsSummaryComponent,
         FlatDeleteComponent,
         ModalComponent,
+        FlatEditComponent,
     ],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: '', component: HomePageComponent, pathMatch: 'full' },
-            { path: 'edit', component: FlatEditPageComponent, pathMatch: 'full' },
+            { path: '', component: HomePageComponent },
+            { path: 'edit/:id', component: FlatEditPageComponent },
             { path: 'details/:id', component: FlatDetailsComponent, outlet: 'modal' },
             { path: 'delete/:id', component: FlatDeleteComponent, outlet: 'modal' },
         ]),

@@ -50,7 +50,7 @@ namespace NewBuildings.Web.Controllers
         }
 
         [HttpPost("edit-flat")]
-        public async Task<ServiceResponse<bool>> EditFlat(FlatFullInformationViewModel model)
+        public async Task<ServiceResponse<bool>> EditFlat([FromBody]FlatFullInformationViewModel model)
         {
             try
             {

@@ -1,0 +1,47 @@
+@import '../../../variables';
+
+.flat-edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        @media screen and(min-width:550px) {
+            width: 500px;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        input {
+            border: 1px solid $border-color;
+            width: 100%;
+
+            &:focus {
+                outline: 1px solid #007bff;
+            }
+        }
+
+        input[type='number'] {
+            -moz-appearance: textfield;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+}

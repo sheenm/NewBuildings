@@ -3,11 +3,12 @@
 .modal {
     width: 99%;
     border: 1px solid $border-color;
-
+    background-color: #fff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     position: fixed;
+    z-index: 100;
 
     @media screen and(min-width:$modalWidth) {
         width: $modalWidth;
