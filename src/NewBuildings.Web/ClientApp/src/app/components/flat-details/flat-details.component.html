@@ -1,2 +1,23 @@
-Просмотр объекта. По клику во всплывающем окне отображаем карточку объекта со всеми его характеристиками. Редактирование
-объекта на карточке недоступно. Просмотр так же доступен по двойному клику.
+<app-modal class="flat-details">
+    <div modal-header>Карточка квартиры</div>
+
+    <div modal-body>
+        <div *ngIf="flat" class="flat-details__body">
+            <label>Идентификатор: {{ flat.id }}</label>
+            <label>Количество комнат: {{ flat.roomsCount }}</label>
+            <label>Общая площадь: {{ flat.fullArea }}</label>
+            <label>Площадь кухни: {{ flat.kitchenArea }}</label>
+
+            <label>Этаж: {{ flat.floor }}</label>
+            <label>Стоимость: {{ flat.cost }}</label>
+            <label>Очередь постройки: {{ flat.constructionStage}}</label>
+            <label>Корпус: {{ flat.housingNumber }}</label>
+            <label>Название ЖК: {{ flat.residentialComplexName}}</label>
+            <label>Район: {{ flat.districtName }}</label>
+            <label>Регион: {{ flat.regionName }}</label>
+        </div>
+    </div>
+
+    <div modal-footer>
+    </div>
+</app-modal>

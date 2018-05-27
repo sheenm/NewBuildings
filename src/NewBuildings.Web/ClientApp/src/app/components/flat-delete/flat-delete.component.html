@@ -1,0 +1,12 @@
+<app-modal class="flat-details" (closeModal)="closeModal($event)" #modal="modal">
+    <div modal-header>Карточка квартиры</div>
+
+    <div modal-body>
+        Вы действительно хотите удалить квартиру?
+    </div>
+
+    <div modal-footer>
+        <button (click)="deleteFlat();modal.closeModal({submitted: true})">Да</button>
+        <button (click)="modal.closeModal({submitted: false})">Нет</button>
+    </div>
+</app-modal>

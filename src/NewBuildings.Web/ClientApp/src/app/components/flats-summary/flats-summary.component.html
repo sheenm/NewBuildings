@@ -34,9 +34,15 @@
         <td>{{flat.cost}}</td>
         <td>
             <div class="flats-summary__actions">
-                <i class="far fa-eye" title="Посмотреть полную информацию"></i>
+                <a [routerLink]="[ {outlets: { modal: ['details', flat.id] } } ]" title="Посмотреть полную информацию">
+                    <i class="far fa-eye"></i>
+                </a>
+
                 <i class="far fa-edit" title="Отредактировать"></i>
-                <i class="far fa-trash-alt" title="Удалить"></i>
+                <!-- [routerLink]="[ {outlets: { modal: ['delete', flat.id] } } ]" -->
+                <a (click)="deleteFlat(flat)" title="Удалить">
+                    <i class="far fa-trash-alt"></i>
+                </a>
             </div>
 
         </td>
@@ -46,19 +52,19 @@
 
 <ul *ngIf="pager && pager.pages && pager.pages.length" class="flats-pagination">
     <li [ngClass]="{disabled:pager.currentPage === 1}">
-        <a class="flats-pagination__link" (click)="setPage(1)">Первая</a>
+        <a class="flats-pagination__link" (click)="setPage(1)">&larr;&larr;</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === 1}">
-        <a class="flats-pagination__link" (click)="setPage(pager.currentPage - 1)">Предыдущая</a>
+        <a class="flats-pagination__link" (click)="setPage(pager.currentPage - 1)">&larr;</a>
     </li>
     <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
         <a class="flats-pagination__link" (click)="setPage(page)">{{page}}</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a class="flats-pagination__link" (click)="setPage(pager.currentPage + 1)">Следующая</a>
+        <a class="flats-pagination__link" (click)="setPage(pager.currentPage + 1)">&rarr;</a>
     </li>
     <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-        <a class="flats-pagination__link" (click)="setPage(pager.totalPages)">Последняя</a>
+        <a class="flats-pagination__link" (click)="setPage(pager.totalPages)">&rarr;&rarr;</a>
     </li>
 </ul>
 

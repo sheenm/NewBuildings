@@ -1,0 +1,44 @@
+@import '../../../variables';
+
+.modal {
+    width: 99%;
+    border: 1px solid $border-color;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: fixed;
+
+    @media screen and(min-width:$modalWidth) {
+        width: $modalWidth;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3rem;
+        border-bottom: 1px solid $border-color;
+        background: $border-color;
+
+        h2 {
+            font-size: 1.2rem;
+        }
+    }
+
+    &__body {
+        padding: 10px;
+    }
+
+    &__footer {
+        border-top: 1px solid $border-color;
+    }
+
+    &__close {
+        font-size: 2rem;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

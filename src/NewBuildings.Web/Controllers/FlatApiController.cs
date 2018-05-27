@@ -64,15 +64,15 @@ namespace NewBuildings.Web.Controllers
         }
 
         [HttpPost("delete-flat")]
-        public async Task<ServiceResponse<bool>> DeleteFlat(int id)
+        public async Task<ServiceResponse<bool>> DeleteFlat([FromBody]DeleteFlatViewModel model)
         {
             try
             {
-                return await _flatService.DeleteFlat(id);
+                return await _flatService.DeleteFlat(model.Id);
             }
             catch (Exception e)
             {
-                _logger.LogError(e, $"exception in  DeleteFlat, called with id = {id}");
+                _logger.LogError(e, $"exception in  DeleteFlat, called with {model}");
                 return ServiceResponse<bool>.Exception("An error occured during delete-flat request");
             }
         }

@@ -3,16 +3,28 @@
 .flats-summary {
     width: 100%;
     border: 1px solid $border-color;
+    overflow-x: scroll;
 
     td,
     th {
-        border: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
     }
 
     &__actions {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+
+        .svg-inline--fa {
+            color: $border-color;
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 }
 

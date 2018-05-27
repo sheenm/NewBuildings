@@ -8,10 +8,12 @@ import fontawesome from '@fortawesome/fontawesome'
 import * as faEdit from '@fortawesome/fontawesome-free-regular/faEdit'
 import * as faView from '@fortawesome/fontawesome-free-regular/faEye'
 import * as faTrashAlt from '@fortawesome/fontawesome-free-regular/faTrashAlt'
+import * as faBuilding from '@fortawesome/fontawesome-free-regular/faBuilding'
 
 fontawesome.library.add(faEdit)
 fontawesome.library.add(faView)
 fontawesome.library.add(faTrashAlt)
+fontawesome.library.add(faBuilding)
 
 export function getBaseUrl() {
     return document.getElementsByTagName('base')[0].href
