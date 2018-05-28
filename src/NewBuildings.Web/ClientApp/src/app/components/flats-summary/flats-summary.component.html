@@ -14,14 +14,14 @@
 
 <table class="flats-summary" *ngIf="flats">
     <tr>
-        <th>Номер</th>
-        <th>Название ЖК</th>
-        <th>Количество комнат</th>
-        <th>Площадь общая</th>
-        <th>Площадь кухни</th>
-        <th>Этаж</th>
-        <th>Стоимость, тыс. руб</th>
-        <th>Действия</th>
+        <th (click)="sortBy('id')">Номер</th>
+        <th (click)="sortBy('residentialComplexName')">Название ЖК</th>
+        <th (click)="sortBy('roomCount')">Количество комнат</th>
+        <th (click)="sortBy('fullArea')">Площадь общая</th>
+        <th (click)="sortBy('kitchenArea')">Площадь кухни</th>
+        <th (click)="sortBy('floor')">Этаж</th>
+        <th (click)="sortBy('cost')">Стоимость, тыс. руб</th>
+        <th (click)="sortBy(id)">Действия</th>
     </tr>
 
     <tr *ngFor="let flat of pagedFlats">

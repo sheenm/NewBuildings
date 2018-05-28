@@ -17,6 +17,8 @@ export class FlatsSummaryComponent {
     public pager: PagerInfo
     public flatsPerPage: number
 
+    public currentSortField = ''
+
     constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
         this.flatsPerPage = 10 // todo : брать из local storage
         this.pagerService = new PagerService()
@@ -29,6 +31,18 @@ export class FlatsSummaryComponent {
             },
             (error) => console.error(error),
         )
+    }
+
+    public sortBy(propertyName: string) {
+        const reverse = this.currentSortField === propertyName
+        if (reverse) {
+            this.flats.reverse()
+        } else {
+            this.flats.sort((a, b) => (a[propertyName] > b[propertyName] ? 1 : -1))
+            this.currentSortField = propertyName
+        }
+
+        this.setPage(this.pager.currentPage)
     }
 
     public setPage(page: number) {
