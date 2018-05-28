@@ -13,35 +13,37 @@
 </p>
 
 <div class="flats-summary-wrapper">
-    <div class="flats-filters">
-        <div class="flats-filters__filter">
+    <div class="flats-filters" *ngIf="flats">
+        <div class="flats-filters__filter" *ngIf="filters['fullArea']">
             <label>Общая площадь:</label>
             <label> от:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['fullArea'].minValue" type="number" class="flats-filters__input" />
             </label>
             <label> до:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['fullArea'].maxValue" type="number" class="flats-filters__input" />
             </label>
         </div>
-        <div class="flats-filters__filter">
+        <div class="flats-filters__filter" *ngIf="filters['fullArea']">
             <label>Площадь кухни</label>
             <label> от:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['kitchenArea'].minValue" type="number" class="flats-filters__input" />
             </label>
             <label> до:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['kitchenArea'].maxValue" type="number" class="flats-filters__input" />
             </label>
 
         </div>
-        <div class="flats-filters__filter">
+        <div class="flats-filters__filter" *ngIf="filters['fullArea']">
             <label>Стоимость:</label>
             <label> от:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['cost'].minValue" type="number" class="flats-filters__input" />
             </label>
             <label> до:
-                <input type="number" class="flats-filters__input" />
+                <input [(ngModel)]="filters['cost'].maxValue" type="number" class="flats-filters__input" />
             </label>
         </div>
+
+        <button (click)="applyFilter()">Применить фильтр</button>
     </div>
 
     <div class="table-wrapper">
