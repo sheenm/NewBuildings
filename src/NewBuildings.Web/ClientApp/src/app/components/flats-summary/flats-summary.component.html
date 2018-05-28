@@ -12,45 +12,81 @@
     клику переходим на страницу объекта (см. 2.2). Удаление объекта. По клику удаляем объект из системы.
 </p>
 
-<table class="flats-summary" *ngIf="flats">
-    <tr>
-        <th (click)="sortBy('id')">Номер</th>
-        <th (click)="sortBy('residentialComplexName')">Название ЖК</th>
-        <th (click)="sortBy('roomCount')">Количество комнат</th>
-        <th (click)="sortBy('fullArea')">Площадь общая</th>
-        <th (click)="sortBy('kitchenArea')">Площадь кухни</th>
-        <th (click)="sortBy('floor')">Этаж</th>
-        <th (click)="sortBy('cost')">Стоимость, тыс. руб</th>
-        <th (click)="sortBy(id)">Действия</th>
-    </tr>
+<div class="flats-summary-wrapper">
+    <div class="flats-filters">
+        <div class="flats-filters__filter">
+            <label>Общая площадь:</label>
+            <label> от:
+                <input type="number" class="flats-filters__input" />
+            </label>
+            <label> до:
+                <input type="number" class="flats-filters__input" />
+            </label>
+        </div>
+        <div class="flats-filters__filter">
+            <label>Площадь кухни</label>
+            <label> от:
+                <input type="number" class="flats-filters__input" />
+            </label>
+            <label> до:
+                <input type="number" class="flats-filters__input" />
+            </label>
 
-    <tr *ngFor="let flat of pagedFlats">
-        <td>{{flat.id}}</td>
-        <td>{{flat.residentialComplexName}}</td>
-        <td>{{flat.roomCount}}</td>
-        <td>{{flat.fullArea}}</td>
-        <td>{{flat.kitchenArea}}</td>
-        <td>{{flat.floor}}</td>
-        <td>{{flat.cost}}</td>
-        <td>
-            <div class="flats-summary__actions">
-                <a [routerLink]="[ {outlets: { modal: ['details', flat.id] } } ]" title="Посмотреть полную информацию">
-                    <i class="far fa-eye"></i>
-                </a>
-                <a [routerLink]="['edit', flat.id]" title="Отредактировать">
-                    <i class="far fa-edit"></i>
-                </a>
+        </div>
+        <div class="flats-filters__filter">
+            <label>Стоимость:</label>
+            <label> от:
+                <input type="number" class="flats-filters__input" />
+            </label>
+            <label> до:
+                <input type="number" class="flats-filters__input" />
+            </label>
+        </div>
+    </div>
 
-                <!-- [routerLink]="[ {outlets: { modal: ['delete', flat.id] } } ]" -->
-                <a (click)="deleteFlat(flat)" title="Удалить">
-                    <i class="far fa-trash-alt"></i>
-                </a>
-            </div>
+    <div class="table-wrapper">
+        <table class="flats-summary" *ngIf="flats">
+            <tr>
+                <th (click)="sortBy('id')">Номер</th>
+                <th (click)="sortBy('residentialComplexName')">Название ЖК</th>
+                <th (click)="sortBy('roomCount')">Количество комнат</th>
+                <th (click)="sortBy('fullArea')">Площадь общая</th>
+                <th (click)="sortBy('kitchenArea')">Площадь кухни</th>
+                <th (click)="sortBy('floor')">Этаж</th>
+                <th (click)="sortBy('cost')">Стоимость, тыс. руб</th>
+                <th (click)="sortBy(id)">Действия</th>
+            </tr>
 
-        </td>
-    </tr>
+            <tr *ngFor="let flat of pagedFlats">
+                <td>{{flat.id}}</td>
+                <td>{{flat.residentialComplexName}}</td>
+                <td>{{flat.roomCount}}</td>
+                <td>{{flat.fullArea}}</td>
+                <td>{{flat.kitchenArea}}</td>
+                <td>{{flat.floor}}</td>
+                <td>{{flat.cost}}</td>
+                <td>
+                    <div class="flats-summary__actions">
+                        <a [routerLink]="[ {outlets: { modal: ['details', flat.id] } } ]" title="Посмотреть полную информацию">
+                            <i class="far fa-eye"></i>
+                        </a>
+                        <a [routerLink]="['edit', flat.id]" title="Отредактировать">
+                            <i class="far fa-edit"></i>
+                        </a>
 
-</table>
+                        <!-- [routerLink]="[ {outlets: { modal: ['delete', flat.id] } } ]" -->
+                        <a (click)="deleteFlat(flat)" title="Удалить">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                    </div>
+
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+
 
 <ul *ngIf="pager && pager.pages && pager.pages.length" class="flats-pagination">
     <li [ngClass]="{disabled:pager.currentPage === 1}">

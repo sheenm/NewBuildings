@@ -1,17 +1,53 @@
 @import '../../../variables';
 
+.flats-summary-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and(min-width:$content-width) {
+        flex-direction: row;
+    }
+}
+
+.flats-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    @media screen and(min-width:$content-width) {
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 0;
+        border: 1px solid $border-color;
+    }
+
+    &__filter {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__input {
+        width: 3rem;
+        border: 1px solid $border-color;
+    }
+}
+
 .flats-summary {
-    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
     border: 1px solid $border-color;
-    overflow-x: scroll;
+    width: 100%;
 
     td,
     th {
-        border-bottom: 1px solid $border-color;
+        padding: 4px;
+        text-align: left;
     }
 
-    tr:last-child td {
-        border-bottom: none;
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
     }
 
     &__actions {
